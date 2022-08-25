@@ -1,0 +1,15 @@
+{
+  "name": "api-restful-with-python-and-flask",
+  "version": "1.0.0",
+  "description": "### I’m creating a basic API with the following methods: -\tGet -\tPost -\tPut -\tDelete",
+  "main": "index.js",
+  "dependencies": {
+    "flask": "^0.2.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dagmar Collela",
+  "license": "ISC"
+}
