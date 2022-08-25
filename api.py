@@ -42,6 +42,25 @@ def create_user():
     }
     return response_users()
 
+@app.route("/users/<int:user_id>", methods={"DELETE"})
+def delete(user_id: int):
+    user = users_data.get(user_id)
+
+    if user:
+        del users_data[user_id]
+    
+    return response_users()
+
+@app.route("/users/<int:user_id>", methods={"PUT"})
+def update(user_id: int):
+    body = request.json
+    name = body.get("name")
+
+    if user_id in users_data:
+        users_data[user_id]["name"] = name
+    
+    return response_users()
+
 
 app.run(debug=True)
 
