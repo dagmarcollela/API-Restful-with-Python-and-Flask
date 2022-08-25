@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
@@ -24,6 +24,24 @@ def root():
 @app.route("/users")
 def list_users():
     return response_users()
+
+@app.route("/users", methods=["POST"])
+def create_user():
+    body = request.json
+
+    ids = list(users_data.keys())
+
+    if ids:
+        new_id = ids[-1] + 1
+    else:
+        new_id = 1
+    
+    users_data[new_id] = {
+        "id": new_id,
+        "name": body["name"]
+    }
+    return response_users()
+
 
 app.run(debug=True)
 
